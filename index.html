@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OFFICE DE YASAI｜100円から始める設置型健康社食®</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Oswald:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green:#2E8B57; --green-light:#4CAF76; --green-pale:#E8F5EE;
+  --orange:#F5820A; --orange-pale:#FFF3E0;
+  --dark:#1A2E1A; --gray:#6B7280; --gray-light:#F4F7F4; --white:#fff;
+  --radius:16px; --shadow:0 4px 24px rgba(46,139,87,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans JP',sans-serif;color:var(--dark);background:var(--white);line-height:1.7}
+
+/* ── HEADER ── */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  background:rgba(13,61,31,.96);backdrop-filter:blur(12px);
+  height:64px;padding:0 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.logo{font-family:'Oswald',sans-serif;font-weight:700;color:#7EE8A2;font-size:1.15rem;text-decoration:none;letter-spacing:.04em}
+.header-cta{background:var(--orange);color:#fff;font-size:.85rem;font-weight:700;padding:9px 22px;border-radius:100px;text-decoration:none;transition:opacity .2s}
+.header-cta:hover{opacity:.85}
+
+/* ── HERO ── */
+.hero{
+  background:linear-gradient(135deg,#0d3d1f 0%,#1a5c35 45%,#2E8B57 100%);
+  min-height:100vh;padding:96px 24px 60px;
+  display:flex;align-items:center;position:relative;overflow:hidden;
+}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 65% 50%,rgba(255,255,255,.04) 0%,transparent 65%)}
+.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(245,130,10,.9);color:#fff;font-size:.75rem;font-weight:700;letter-spacing:.08em;padding:5px 16px;border-radius:100px;margin-bottom:20px}
+.hero h1{font-family:'Oswald',sans-serif;font-size:clamp(2.2rem,4.5vw,3.6rem);line-height:1.15;color:#fff;font-weight:700;margin-bottom:20px}
+.hero h1 .accent{color:#7EE8A2;display:block}
+.hero-lead{color:rgba(255,255,255,.82);font-size:1rem;margin-bottom:32px;line-height:1.85}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:36px}
+.stat-card{background:rgba(255,255,255,.1);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);border-radius:12px;padding:14px 18px}
+.stat-num{font-family:'Oswald',sans-serif;font-size:1.9rem;color:#7EE8A2;font-weight:700;line-height:1}
+.stat-label{font-size:.74rem;color:rgba(255,255,255,.65);margin-top:3px}
+.cta-btn{display:inline-flex;align-items:center;gap:10px;background:var(--orange);color:#fff;font-size:1.05rem;font-weight:700;padding:17px 38px;border-radius:100px;text-decoration:none;box-shadow:0 8px 28px rgba(245,130,10,.4);transition:transform .2s,box-shadow .2s}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(245,130,10,.5)}
+
+/* ── HERO MEDIA (right column) ── */
+.hero-media{display:flex;flex-direction:column;gap:16px}
+.hero-video-wrap{
+  border-radius:var(--radius);overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,.4);
+  border:2px solid rgba(255,255,255,.15);
+  background:#000;
+}
+.hero-video-wrap video{width:100%;display:block;max-height:280px;object-fit:cover}
+.hero-audio-wrap{
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);
+  border-radius:12px;padding:16px 20px;
+}
+.audio-label{font-size:.76rem;color:rgba(255,255,255,.6);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.hero-audio-wrap audio{width:100%;height:36px;accent-color:var(--green-light)}
+
+/* ── SECTION BASE ── */
+section{padding:80px 24px}
+.container{max-width:1100px;margin:0 auto}
+.section-tag{display:inline-block;background:var(--green-pale);color:var(--green);font-size:.76rem;font-weight:700;letter-spacing:.1em;padding:4px 14px;border-radius:100px;margin-bottom:14px;text-transform:uppercase}
+.section-title{font-family:'Oswald',sans-serif;font-size:clamp(1.7rem,3.8vw,2.7rem);font-weight:700;line-height:1.25;margin-bottom:14px}
+.section-sub{color:var(--gray);font-size:.95rem;max-width:600px;line-height:1.8}
+
+/* ── TAX BANNER ── */
+.tax-banner{background:linear-gradient(90deg,#1a2e1a,#2E8B57);padding:22px 28px;border-radius:var(--radius);color:#fff;margin-bottom:80px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.tax-banner-icon{font-size:2.2rem;flex-shrink:0}
+.tax-banner-text h3{font-size:1.05rem;font-weight:700;margin-bottom:4px}
+.tax-banner-text p{font-size:.87rem;opacity:.85;line-height:1.6}
+.tax-highlight{background:var(--orange);color:#fff;font-family:'Oswald',sans-serif;font-size:1.9rem;font-weight:700;padding:8px 20px;border-radius:8px;white-space:nowrap;margin-left:auto}
+
+/* ── INFOGRAPHIC ── */
+.infographic-section{background:var(--gray-light)}
+.infographic-wrap{
+  margin-top:40px;border-radius:var(--radius);overflow:hidden;
+  box-shadow:var(--shadow);background:#fff;
+}
+.infographic-wrap img{width:100%;display:block;height:auto}
+
+/* ── PROBLEMS ── */
+.problems-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.problem-card{background:#fff;border-radius:var(--radius);padding:28px 24px;border-top:4px solid #e5e7eb;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+.problem-icon{font-size:2.6rem;margin-bottom:14px;display:block}
+.problem-card h3{font-size:1rem;font-weight:700;margin-bottom:8px}
+.problem-card p{font-size:.87rem;color:var(--gray);line-height:1.7}
+
+/* ── SOLUTION ── */
+.solution-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-top:44px}
+.solution-points{display:flex;flex-direction:column;gap:20px}
+.solution-point{display:flex;gap:18px;align-items:flex-start;padding:22px;background:var(--green-pale);border-radius:var(--radius)}
+.solution-point-icon{width:46px;height:46px;border-radius:11px;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0}
+.solution-point h3{font-size:.97rem;font-weight:700;margin-bottom:5px}
+.solution-point p{font-size:.85rem;color:var(--gray);line-height:1.7}
+.mechanism-card{background:var(--dark);border-radius:var(--radius);padding:36px;color:#fff;text-align:center}
+.mechanism-card h3{font-size:1rem;font-weight:700;margin-bottom:28px;opacity:.75}
+.balance-row{display:flex;align-items:center;justify-content:center;gap:18px;margin-bottom:22px}
+.balance-side{flex:1;text-align:center}
+.coin{width:76px;height:76px;border-radius:50%;background:linear-gradient(135deg,#FFD700,#FFA500);display:flex;flex-direction:column;align-items:center;justify-content:center;margin:0 auto 10px;font-weight:700;color:#7a4e00;font-size:1.05rem;box-shadow:0 4px 14px rgba(255,165,0,.4)}
+.balance-side span{font-size:.83rem;opacity:.7}
+.mechanism-result{background:rgba(126,232,162,.1);border:1px solid rgba(126,232,162,.3);border-radius:10px;padding:14px;font-size:.87rem;color:rgba(255,255,255,.8);line-height:1.7}
+.mechanism-result strong{color:#7EE8A2}
+
+/* ── PLANS ── */
+.plans-bg{background:var(--gray-light)}
+.plans-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:44px}
+.plan-card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.plan-header{padding:28px 28px 24px}
+.plan-card.yasai .plan-header{background:linear-gradient(135deg,#2E8B57,#4CAF76)}
+.plan-card.gohan .plan-header{background:linear-gradient(135deg,#D4870A,#F5A623)}
+.plan-label{font-size:.73rem;font-weight:700;letter-spacing:.1em;color:rgba(255,255,255,.7);margin-bottom:6px;text-transform:uppercase}
+.plan-name{font-family:'Oswald',sans-serif;font-size:1.9rem;color:#fff;font-weight:700;margin-bottom:7px}
+.plan-desc{font-size:.87rem;color:rgba(255,255,255,.85);line-height:1.6}
+.plan-body{padding:24px 28px 28px}
+.plan-features{list-style:none;display:flex;flex-direction:column;gap:12px;margin-bottom:24px}
+.plan-features li{display:flex;align-items:flex-start;gap:10px;font-size:.87rem;color:var(--dark);line-height:1.6}
+.plan-features li::before{content:'✓';font-weight:700;color:var(--green);flex-shrink:0;margin-top:1px}
+.plan-card.gohan .plan-features li::before{color:var(--orange)}
+.plan-meta{background:var(--gray-light);border-radius:10px;padding:14px 18px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.plan-meta-item label{font-size:.73rem;color:var(--gray);display:block;margin-bottom:2px}
+.plan-meta-item span{font-size:.88rem;font-weight:700;color:var(--dark)}
+
+/* ── ROI ── */
+.roi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.roi-card{border-radius:var(--radius);padding:28px 24px;border:1px solid #E5E7EB;background:#fff;transition:transform .2s,box-shadow .2s;position:relative}
+.roi-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.roi-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;border-radius:var(--radius) var(--radius) 0 0;background:var(--green)}
+.roi-num{font-family:'Oswald',sans-serif;font-size:2.2rem;color:var(--green);font-weight:700;line-height:1;margin-bottom:7px}
+.roi-card h3{font-size:.97rem;font-weight:700;margin-bottom:10px}
+.roi-card p{font-size:.85rem;color:var(--gray);line-height:1.7}
+
+/* ── TAX SECTION ── */
+.tax-section{background:linear-gradient(135deg,#0d3d1f,#1a5c35);color:#fff}
+.tax-section .section-tag{background:rgba(126,232,162,.2);color:#7EE8A2}
+.tax-section .section-title{color:#fff}
+.tax-section .section-sub{color:rgba(255,255,255,.7)}
+.tax-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px}
+.tax-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:var(--radius);padding:26px 22px}
+.tax-card h3{font-size:.87rem;font-weight:700;color:rgba(255,255,255,.6);margin-bottom:10px}
+.tax-card .val{font-family:'Oswald',sans-serif;font-size:2rem;color:#7EE8A2;font-weight:700;line-height:1;margin-bottom:7px}
+.tax-card p{font-size:.83rem;color:rgba(255,255,255,.7);line-height:1.7}
+.tax-requirement{margin-top:36px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);padding:28px 32px}
+.tax-requirement h3{font-size:1rem;font-weight:700;margin-bottom:18px;color:#7EE8A2}
+.req-list{display:flex;flex-direction:column;gap:14px}
+.req-item{display:flex;align-items:flex-start;gap:14px;font-size:.9rem;color:rgba(255,255,255,.8);line-height:1.6}
+.req-num{width:26px;height:26px;border-radius:50%;background:var(--green);color:#fff;font-weight:700;font-size:.78rem;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+/* ── PRICING ── */
+.pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:44px}
+.pricing-table{border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.pricing-table-header{padding:18px 22px;font-weight:700;font-size:1rem;color:#fff;display:flex;align-items:center;gap:8px}
+.pricing-table.yasai .pricing-table-header{background:var(--green)}
+.pricing-table.gohan .pricing-table-header{background:var(--orange)}
+.pricing-table table{width:100%;border-collapse:collapse;background:#fff}
+.pricing-table td,.pricing-table th{padding:12px 18px;border-bottom:1px solid #F0F4F0;font-size:.86rem;text-align:left}
+.pricing-table th{background:#FAFBFA;color:var(--gray);font-weight:600;font-size:.78rem}
+.pricing-table td:last-child{font-weight:700;color:var(--dark);text-align:right}
+.initial-cost{margin-top:28px;background:var(--orange-pale);border-radius:var(--radius);padding:24px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.initial-cost h3{font-size:.97rem;font-weight:700}
+.initial-cost p{font-size:.85rem;color:var(--gray);margin-top:4px;line-height:1.6}
+.cost-val{font-family:'Oswald',sans-serif;font-size:1.9rem;color:var(--orange);font-weight:700}
+
+/* ── STORYBOARD / PDF ── */
+.storyboard-section{background:var(--gray-light)}
+.pdf-viewer-wrap{
+  margin-top:40px;border-radius:var(--radius);overflow:hidden;
+  box-shadow:var(--shadow);background:#fff;
+  border:1px solid #e5e7eb;
+}
+.pdf-viewer-header{
+  padding:16px 24px;background:var(--dark);color:#fff;
+  display:flex;align-items:center;justify-content:space-between;
+  font-size:.9rem;font-weight:700;
+}
+.pdf-viewer-header a{color:#7EE8A2;font-size:.82rem;text-decoration:none;font-weight:400}
+.pdf-viewer-header a:hover{text-decoration:underline}
+.pdf-embed{width:100%;height:700px;border:none;display:block}
+
+/* ── STEPS ── */
+.steps-bg{background:var(--gray-light)}
+.steps-flow{display:flex;align-items:flex-start;position:relative;margin-top:48px}
+.steps-flow::before{content:'';position:absolute;top:30px;left:32px;right:32px;height:2px;background:linear-gradient(90deg,var(--green),var(--green-light));z-index:0}
+.step-item{flex:1;text-align:center;position:relative;z-index:1;padding:0 10px}
+.step-circle{width:60px;height:60px;border-radius:50%;background:var(--green);color:#fff;font-family:'Oswald',sans-serif;font-size:1.3rem;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;box-shadow:0 4px 14px rgba(46,139,87,.3);border:4px solid #fff}
+.step-item h3{font-size:.88rem;font-weight:700;margin-bottom:6px}
+.step-item p{font-size:.78rem;color:var(--gray);line-height:1.5}
+.step-time{display:inline-block;background:var(--orange);color:#fff;font-size:.7rem;font-weight:700;padding:2px 9px;border-radius:100px;margin-bottom:7px}
+
+/* ── FAQ ── */
+.faq-list{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:44px}
+.faq-item{background:#fff;border-radius:var(--radius);padding:24px 26px;box-shadow:0 2px 12px rgba(0,0,0,.06);border-left:4px solid var(--green)}
+.faq-q{font-size:.9rem;font-weight:700;margin-bottom:10px;display:flex;gap:9px;align-items:flex-start}
+.faq-q::before{content:'Q';background:var(--green);color:#fff;font-family:'Oswald',sans-serif;font-weight:700;font-size:.83rem;width:22px;height:22px;border-radius:5px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.faq-a{font-size:.85rem;color:var(--gray);line-height:1.7;padding-left:31px}
+
+/* ── CTA FINAL ── */
+.cta-final{background:linear-gradient(135deg,#0d3d1f,#2E8B57);text-align:center;padding:96px 24px}
+.cta-final h2{font-family:'Oswald',sans-serif;font-size:clamp(1.9rem,4.5vw,3rem);color:#fff;font-weight:700;margin-bottom:14px;line-height:1.2}
+.cta-final p{color:rgba(255,255,255,.8);font-size:1rem;margin-bottom:44px;line-height:1.8}
+.cta-btn-main{display:inline-flex;align-items:center;gap:10px;background:var(--orange);color:#fff;font-size:1.05rem;font-weight:700;padding:18px 44px;border-radius:100px;text-decoration:none;box-shadow:0 8px 28px rgba(245,130,10,.4);transition:transform .2s,box-shadow .2s}
+.cta-btn-main:hover{transform:translateY(-2px);box-shadow:0 12px 36px rgba(245,130,10,.5)}
+.contact-info{margin-top:36px;font-size:.88rem;color:rgba(255,255,255,.55);display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap}
+.contact-info a{color:#7EE8A2;text-decoration:none}
+.note{margin-top:36px;font-size:.75rem;color:rgba(255,255,255,.35);line-height:1.8;max-width:680px;margin-left:auto;margin-right:auto}
+
+/* ── ANIMATE ── */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .hero-inner,.solution-grid,.plans-grid,.pricing-grid{grid-template-columns:1fr;gap:36px}
+  .problems-grid,.roi-grid,.tax-cards{grid-template-columns:1fr}
+  .faq-list{grid-template-columns:1fr}
+  .steps-flow{flex-direction:column;gap:22px}
+  .steps-flow::before{display:none}
+  .tax-highlight{margin-left:0}
+  .pdf-embed{height:420px}
+  header{padding:0 16px}
+  section{padding:60px 16px}
+  .initial-cost,.hero-stats{flex-direction:column}
+  .hero-stats{display:grid;grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="#" class="logo">🥗 OFFICE DE YASAI</a>
+  <a href="#cta" class="header-cta">無料トライアルを相談する</a>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-inner">
+    <!-- LEFT: コピー -->
+    <div>
+      <div class="hero-badge">🆕 2026年4月 食事補助非課税枠が月額7,500円に拡大</div>
+      <h1>
+        社員が手放さない<br>
+        <span class="accent">"福利厚生"という選択肢</span>
+      </h1>
+      <p class="hero-lead">
+        冷蔵庫を置くだけ。<br>
+        100円から始める設置型健康社食<sup>®</sup>「OFFICE DE YASAI」で、<br>
+        採用・定着・健康経営の3つを同時に解決。
+      </p>
+      <div class="hero-stats">
+        <div class="stat-card">
+          <div class="stat-num">20,000<span style="font-size:.78rem">拠点</span></div>
+          <div class="stat-label">累計導入拠点</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">99.2<span style="font-size:.95rem">%</span></div>
+          <div class="stat-label">サービス継続率</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">+90.8<span style="font-size:.9rem">%</span></div>
+          <div class="stat-label">従業員満足度UP</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">140<span style="font-size:.85rem">種+</span></div>
+          <div class="stat-label">毎月のラインナップ</div>
+        </div>
+      </div>
+      <a href="#cta" class="cta-btn">🥦 2ヶ月無料トライアルを相談する</a>
+    </div>
+
+    <!-- RIGHT: 動画＋音声 -->
+    <div class="hero-media">
+      <div class="hero-video-wrap">
+        <video controls preload="metadata" poster="">
+          <source src="社員が手放さない福利厚生.mp4" type="video/mp4">
+          お使いのブラウザは動画再生に対応していません。
+        </video>
+      </div>
+      <div class="hero-audio-wrap">
+        <div class="audio-label">「100円サラダ〜離職防止〜」</div>
+        <audio controls preload="metadata">
+          <source src="100円サラダ_離職防止.m4a" type="audio/mp4">
+          お使いのブラウザは音声再生に対応していません。
+        </audio>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TAX BANNER -->
+<div style="padding:56px 24px 0;max-width:1100px;margin:0 auto">
+  <div class="tax-banner fade-up">
+    <div class="tax-banner-icon">📢</div>
+    <div class="tax-banner-text">
+      <h3>2026年4月 税制改正：食事補助の非課税限度額が42年ぶりに拡大！</h3>
+      <p>国税庁通達により、月額3,500円 → <strong>7,500円</strong>へ引き上げ。従業員1人あたり年間最大90,000円を<strong>所得税・社会保険料なしで実質手取りとして還元</strong>できます。</p>
+    </div>
+    <div class="tax-highlight">月額<br>7,500円</div>
+  </div>
+</div>
+
+<!-- ===== INFOGRAPHIC ===== -->
+<section class="infographic-section">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-tag">サービス概要</div>
+      <h2 class="section-title">OFFICE DE YASAI とは？</h2>
+      <p class="section-sub">100円から始める設置型健康社食®。3つのポイントと導入効果をひと目で確認できます。</p>
+    </div>
+    <div class="infographic-wrap fade-up">
+      <img src="offide_de_yasai.png" alt="OFFICE DE YASAI サービス概要インフォグラフィック" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROBLEMS ===== -->
+<section>
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-tag">課題</div>
+      <h2 class="section-title">現代のオフィスが抱える<br>「3つの見えない損失」</h2>
+      <p class="section-sub">食環境の問題を見過ごしたまま、採用・生産性・健康の3つで大きなコストを払い続けていませんか？</p>
+    </div>
+    <div class="problems-grid">
+      <div class="problem-card fade-up">
+        <span class="problem-icon">🏢</span>
+        <h3>周辺に飲食店がない・コンビニばかり</h3>
+        <p>「ランチ難民」問題。栄養の偏りや食事にかかる時間・ストレスが、従業員の体調に直結します。</p>
+      </div>
+      <div class="problem-card fade-up">
+        <span class="problem-icon">😴</span>
+        <h3>不健康な食生活による生産性の低下</h3>
+        <p>プレゼンティーズムによる生産性ロスは、欠勤コストの2〜3倍とも言われます。午後の眠気・体調不良が生産性を蝕みます。</p>
+      </div>
+      <div class="problem-card fade-up">
+        <span class="problem-icon">📋</span>
+        <h3>魅力的な福利厚生がなく採用・定着に苦戦</h3>
+        <p>求職者の74.3%が企業選びで食事補助を重視。充実した福利厚生なしでは他社との差別化が困難です。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SOLUTION ===== -->
+<section style="background:var(--gray-light)">
+  <div class="container">
+    <div class="solution-grid">
+      <div class="fade-up">
+        <div class="section-tag">解決策</div>
+        <h2 class="section-title">オフィスに冷蔵庫を<br>置くだけ。</h2>
+        <p class="section-sub" style="margin-bottom:28px">人事・総務の手間はほぼゼロ。発注は月1回、補充・賞味期限管理は配達員にお任せ。</p>
+        <div class="solution-points">
+          <div class="solution-point">
+            <div class="solution-point-icon">💴</div>
+            <div>
+              <h3>従業員は1品100円〜手軽に購入</h3>
+              <p>企業が費用の半額を補助。24時間いつでも新鮮な食事にアクセスできます。</p>
+            </div>
+          </div>
+          <div class="solution-point">
+            <div class="solution-point-icon">🥦</div>
+            <div>
+              <h3>月140種以上・合成着色料不使用</h3>
+              <p>管理栄養士監修。冷蔵（約100種）＋冷凍（約40種）。飽きが来ないから続きます。</p>
+            </div>
+          </div>
+          <div class="solution-point">
+            <div class="solution-point-icon">🔄</div>
+            <div>
+              <h3>運用コスト・手間の最小化</h3>
+              <p>発注は月1回WEBから。商品補充・期限切れ回収は配達員が対応（一部エリア）。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fade-up">
+        <div class="mechanism-card">
+          <h3>なぜ「100円」で質の高い食事が提供できるのか？</h3>
+          <div class="balance-row">
+            <div class="balance-side">
+              <div class="coin">100<br><small>円</small></div>
+              <span>企業が補助</span>
+            </div>
+            <div style="font-size:1.4rem;opacity:.4">＋</div>
+            <div class="balance-side">
+              <div class="coin">100<br><small>円</small></div>
+              <span>従業員が負担</span>
+            </div>
+          </div>
+          <div class="mechanism-result">
+            企業と従業員で<strong>コストをシェアする「補助型」</strong>の仕組み。<br>
+            企業様が商品代金の半額を<strong>福利厚生費</strong>として負担することで、<br>
+            従業員様は残りの100円を支払うだけで利用できます。
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PLANS ===== -->
+<section class="plans-bg">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-tag">プラン</div>
+      <h2 class="section-title">ニーズに合わせて選べる<br>2つのプラン</h2>
+      <p class="section-sub">迷ったら両プラン併用のトライアル導入が大好評。</p>
+    </div>
+    <div class="plans-grid">
+      <div class="plan-card yasai fade-up">
+        <div class="plan-header">
+          <div class="plan-label">🥗 冷蔵プラン</div>
+          <div class="plan-name">やさいプラン</div>
+          <div class="plan-desc">新鮮なサラダ・フルーツ・惣菜をオフィスへ。ランチのプラス1品・健康的な間食に。</div>
+        </div>
+        <div class="plan-body">
+          <ul class="plan-features">
+            <li>月約100種 / サラダ・フルーツ・惣菜・スムージー</li>
+            <li>管理栄養士監修・合成着色料不使用</li>
+            <li>消費期限：サラダ2日、フルーツ5日、惣菜約1週間</li>
+            <li>1〜2週間でメニューの一部が入れ替わり</li>
+            <li>朝食・昼食・間食・夜食まで幅広く対応</li>
+          </ul>
+          <div class="plan-meta">
+            <div class="plan-meta-item"><label>冷蔵庫サイズ</label><span>W454×D408×H985mm</span></div>
+            <div class="plan-meta-item"><label>最小プラン</label><span>150個 / 月〜</span></div>
+            <div class="plan-meta-item"><label>月額利用料</label><span>60,000円〜（税別）</span></div>
+            <div class="plan-meta-item"><label>対象人数目安</label><span>5名〜</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="plan-card gohan fade-up">
+        <div class="plan-header">
+          <div class="plan-label">🍱 冷凍プラン</div>
+          <div class="plan-name">ごはんプラン</div>
+          <div class="plan-desc">主食・惣菜・冷凍弁当。夜勤・残業時の主食に。2ヶ月以上の賞味期限で在庫管理も楽。</div>
+        </div>
+        <div class="plan-body">
+          <ul class="plan-features">
+            <li>月約40種 / ご飯・麺・無添加惣菜・お弁当シリーズ</li>
+            <li>国産食材・無添加にこだわった商品構成</li>
+            <li>消費期限：原則2ヶ月以上</li>
+            <li>ほぼ全品が毎月刷新される飽きない構成</li>
+            <li>2026年新登場：1食完結の冷凍弁当シリーズ</li>
+          </ul>
+          <div class="plan-meta">
+            <div class="plan-meta-item"><label>冷凍庫サイズ</label><span>W545×D542×H1144mm</span></div>
+            <div class="plan-meta-item"><label>最小プラン</label><span>80個 / 月〜</span></div>
+            <div class="plan-meta-item"><label>月額利用料</label><span>30,000円〜（税別）</span></div>
+            <div class="plan-meta-item"><label>対象人数目安</label><span>5名〜</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ROI ===== -->
+<section>
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-tag">投資対効果</div>
+      <h2 class="section-title">OFFICE DE YASAIがもたらす<br>「3つのROI」</h2>
+      <p class="section-sub">食環境の改善は、企業の3つの経営課題を同時に解決します。</p>
+    </div>
+    <div class="roi-grid">
+      <div class="roi-card fade-up">
+        <div class="roi-num">+90.8%</div>
+        <h3>従業員満足度UP</h3>
+        <p>「会社が健康を気遣ってくれている」という実感がエンゲージメントを向上。導入企業の調査で90.8%アップの実績。</p>
+      </div>
+      <div class="roi-card fade-up">
+        <div class="roi-num">健康経営</div>
+        <h3>生産性の最大化</h3>
+        <p>栄養バランスの改善で午後の眠気・体調不良を防止。プレゼンティーズムによる損失を削減し、パフォーマンスを最大化。</p>
+      </div>
+      <div class="roi-card fade-up">
+        <div class="roi-num">採用力↑</div>
+        <h3>採用・定着率の強化</h3>
+        <p>「食生活まで気遣う会社」というメッセージが採用ページでの差別化要因に。人材の定着率向上にも直結。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TAX SECTION ===== -->
+<section class="tax-section">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-tag">2026年税制改正</div>
+      <h2 class="section-title">食事補助の非課税枠が<br>42年ぶりに倍増</h2>
+      <p class="section-sub">2026年4月1日施行。企業・従業員双方にとって「第3の賃上げ」となる大改正です。</p>
+    </div>
+    <div class="tax-cards">
+      <div class="tax-card fade-up">
+        <h3>非課税上限額（月額）</h3>
+        <div class="val">7,500円</div>
+        <p>3,500円から約2倍に拡大。年間最大90,000円を所得税・社会保険料なしで還元可能。</p>
+      </div>
+      <div class="tax-card fade-up">
+        <h3>従業員へのメリット</h3>
+        <div class="val">実質100%</div>
+        <p>所得税・住民税がかからないため、支給額の価値を100%享受。手取りが実質的に増加。</p>
+      </div>
+      <div class="tax-card fade-up">
+        <h3>企業へのメリット</h3>
+        <div class="val">経費計上可</div>
+        <p>社会保険料増加なしで実質的な待遇改善。法人税算定上、福利厚生費として経費計上が可能。</p>
+      </div>
+    </div>
+    <div class="tax-requirement fade-up">
+      <h3>⚠️ 非課税適用のための2つの要件</h3>
+      <div class="req-list">
+        <div class="req-item">
+          <div class="req-num">1</div>
+          <span>従業員の負担が食事価額の<strong>50%以上</strong>であること（企業が全額負担は不可）</span>
+        </div>
+        <div class="req-item">
+          <div class="req-num">2</div>
+          <span>企業の補助額が月額<strong>7,500円以下</strong>であること（超過した場合は補助全額が給与課税対象となるため注意）</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICING ===== -->
+<section>
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-tag">料金</div>
+      <h2 class="section-title">シンプルな料金体系</h2>
+      <p class="section-sub">月額利用料＋商品代金（企業補助分）のわかりやすい構成。全て税別表示。</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="pricing-table yasai fade-up">
+        <div class="pricing-table-header">🥗 やさいプラン（冷蔵）</div>
+        <table>
+          <tr><th>プラン</th><th>月間個数</th><th>月額利用料</th></tr>
+          <tr><td>150個プラン</td><td>150個</td><td>60,000円〜</td></tr>
+          <tr><td>180個プラン</td><td>180個</td><td>66,000円〜</td></tr>
+          <tr><td>250個プラン</td><td>250個</td><td>80,000円〜</td></tr>
+          <tr><td>300個プラン</td><td>300個</td><td>90,000円〜</td></tr>
+        </table>
+      </div>
+      <div class="pricing-table gohan fade-up">
+        <div class="pricing-table-header">🍱 ごはんプラン（冷凍）</div>
+        <table>
+          <tr><th>プラン</th><th>月間個数</th><th>月額利用料</th></tr>
+          <tr><td>80個プラン</td><td>80個</td><td>30,000円〜</td></tr>
+          <tr><td>120個プラン</td><td>120個</td><td>44,000円〜</td></tr>
+          <tr><td>160個プラン</td><td>160個</td><td>58,000円〜</td></tr>
+          <tr><td>200個プラン</td><td>200個</td><td>72,000円〜</td></tr>
+        </table>
+      </div>
+    </div>
+    <div class="initial-cost fade-up">
+      <div>
+        <h3>初期導入費用</h3>
+        <p>冷蔵庫・冷凍庫の設置および初期設定費用。本契約時に一括請求。<br>
+        ※ <strong>2ヶ月無料トライアル中は月額利用料・初期費用ともに0円！</strong></p>
+      </div>
+      <div class="cost-val">70,000円<span style="font-size:.95rem;font-weight:400;color:#6B7280">（税別）</span></div>
+    </div>
+    <div style="margin-top:20px;background:var(--green-pale);border-radius:var(--radius);padding:22px 26px;font-size:.88rem;color:var(--dark);line-height:1.8" class="fade-up">
+      💡 <strong>決済はYASAI PAYアプリ（スマホで完結）またはYASAIレジ（交通系IC/クレカ）で現金管理不要。</strong>
+      キャッシュレス売上金は翌月の請求額から自動返金されるため、企業側の現金回収作業はゼロです。
+    </div>
+  </div>
+</section>
+
+<!-- ===== STORYBOARD PDF ===== -->
+<section class="storyboard-section">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-tag">ストーリーボード</div>
+      <h2 class="section-title">プレゼン資料を<br>そのままご覧ください</h2>
+      <p class="section-sub">導入検討のための詳細スライドです。社内共有にもご活用ください。</p>
+    </div>
+    <div class="pdf-viewer-wrap fade-up">
+      <div class="pdf-viewer-header">
+        <span>📄 OFFICE DE YASAI Storyboard</span>
+        <a href="OFFICE_DE_YASAI_Storyboard.pdf" download>⬇ PDFをダウンロード</a>
+      </div>
+      <embed
+        src="OFFICE_DE_YASAI_Storyboard.pdf#toolbar=1&navpanes=0&scrollbar=1&view=FitH"
+        class="pdf-embed"
+        type="application/pdf">
+      </embed>
+      <!-- フォールバック（embedが動作しない環境向け） -->
+      <noscript>
+        <p style="padding:24px;text-align:center;color:var(--gray)">
+          PDFを表示できない場合は<a href="OFFICE_DE_YASAI_Storyboard.pdf">こちらからダウンロード</a>してください。
+        </p>
+      </noscript>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STEPS ===== -->
+<section class="steps-bg">
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-tag">導入の流れ</div>
+      <h2 class="section-title">お申し込みから健康経営<br>スタートまでの最短ルート</h2>
+    </div>
+    <div class="steps-flow">
+      <div class="step-item fade-up">
+        <div class="step-circle">1</div>
+        <div class="step-time">1〜2週間</div>
+        <h3>WEBよりお申し込み</h3>
+        <p>フォームから必要事項を記入して送信</p>
+      </div>
+      <div class="step-item fade-up">
+        <div class="step-circle">2</div>
+        <div class="step-time">2〜3週間後</div>
+        <h3>WEBより商品注文</h3>
+        <p>マイページから商品をリクエスト</p>
+      </div>
+      <div class="step-item fade-up">
+        <div class="step-circle">3</div>
+        <div class="step-time">約1ヶ月後</div>
+        <h3>機材到着・設置</h3>
+        <p>冷蔵庫・冷凍庫が届き設置完了</p>
+      </div>
+      <div class="step-item fade-up">
+        <div class="step-circle">4</div>
+        <div class="step-time">1〜1.5ヶ月後</div>
+        <h3>トライアル開始！</h3>
+        <p>2ヶ月間ノーリスクで効果を確認</p>
+      </div>
+      <div class="step-item fade-up">
+        <div class="step-circle">5</div>
+        <div class="step-time">3〜4ヶ月後</div>
+        <h3>1年間の本契約へ</h3>
+        <p>随時サポートを受けながら継続運用</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section>
+  <div class="container">
+    <div class="fade-up">
+      <div class="section-tag">よくある質問</div>
+      <h2 class="section-title">FAQ</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item fade-up">
+        <div class="faq-q">賞味期限切れの商品はどうなる？</div>
+        <div class="faq-a">全てお買取りですが、月ごとに発注個数を調整可能。最初は少なめにして消費ペースを見ながら増やすのがおすすめです。</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q">メニューは毎月変わる？</div>
+        <div class="faq-a">はい。やさいプランは1〜2週間で一部変更、ごはんプランはほぼ毎月全品入れ替わります。</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q">商品が勝手に取られないか心配…</div>
+        <div class="faq-a">性善説での運用ですが、人目につく場所への設置やキャッシュレス決済の徹底など、各社様が工夫して運用されています。</div>
+      </div>
+      <div class="faq-item fade-up">
+        <div class="faq-q">人数が少なくても導入できる？</div>
+        <div class="faq-a">常時5名様以上いらっしゃる事業所であればご利用可能です（最適な個数のプランをご提案します）。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA FINAL ===== -->
+<section class="cta-final" id="cta">
+  <div class="container">
+    <div class="fade-up">
+      <div style="font-size:2.8rem;margin-bottom:14px">🥗</div>
+      <h2>食の充実が、<br>会社の未来を変える。</h2>
+      <p>まずはノーリスクの「2ヶ月無料トライアル」から。<br>従業員が喜ぶ健康経営をはじめませんか？</p>
+      <a href="mailto:takeru_terasawa@officedeyasai.jp" class="cta-btn-main">
+        📩 無料トライアルについて相談する
+      </a>
+      <div class="contact-info">
+        <span>担当：</span>
+        <a href="mailto:"></a>
+      </div>
+      <p class="note">
+        ※本契約へ移行した場合のみ、初期費用等が発生します。機材の指定位置への設置等を希望される場合は別途オプション費用がかかります。<br>
+        ※非課税適用は要件を満たす場合に限ります。詳細は税理士・社労士にご確認ください。
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible') });
+}, { threshold: 0.08, rootMargin: '0px 0px -36px 0px' });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
